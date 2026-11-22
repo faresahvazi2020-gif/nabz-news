@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090d14">
+  <title>نبض | خبرگزاری هوشمند</title>
+  <meta name="description" content="داشبورد هوشمند اخبار فناوری، سیاست، امنیت، فوتبال و بازارهای مالی">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">ن</span><span><b>نبض</b><small>مرکز هوشمند خبر و تحلیل</small></span></a>
+    <div class="top-actions"><span class="live-dot"></span><span>پایش خودکار خبرها</span><span class="date" id="today"></span></div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> نمای زنده رویدادهای جهان</div>
+        <h1>دنیا را <em>هوشمندانه</em> دنبال کن.</h1>
+        <p>خبرهای مهم، یک‌جا؛ از هوش مصنوعی و تحولات سیاسی تا فوتبال و بازارهای مالی.</p>
+        <div class="hero-meta"><span>آخرین دریافت: <b id="updated">در انتظار داده‌ها…</b></span><span class="separator">•</span><span>به‌روزرسانی خودکار ساعتی</span></div>
+      </div>
+      <div class="hero-orb"><div class="orb-core">N</div><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit-dot"></span></div>
+    </section>
+
+    <section class="ticker-panel">
+      <div class="section-heading compact"><div><span class="eyebrow">بازارهای جهانی</span><h2>نبض بازار</h2></div><span class="muted">نمای زنده از TradingView</span></div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {"symbols":[{"proName":"OANDA:XAUUSD","title":"طلا"},{"proName":"TVC:USOIL","title":"نفت WTI"},{"proName":"FX_IDC:USDIRR","title":"دلار/ریال"},{"proName":"BINANCE:BTCUSDT","title":"بیت‌کوین"},{"proName":"BINANCE:ETHUSDT","title":"اتریوم"},{"proName":"NASDAQ:NDX","title":"نزدک"},{"proName":"SP:SPX","title":"S&P 500"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"fa_IR"}
+        </script>
+      </div>
+      <p class="disclaimer">قیمت‌ها از ابزار شخص ثالث نمایش داده می‌شوند؛ ممکن است با تأخیر باشند و جایگزین داده رسمی کارگزاری نیستند.</p>
+    </section>
+
+    <section class="digest">
+      <div class="digest-icon">✦</div>
+      <div class="digest-body"><div class="digest-top"><span class="eyebrow">خلاصه روزانه</span><span class="time-pill">هر روز ساعت ۷:۰۰ صبح · تهران</span></div>
+        <h2>مهم‌ترین اتفاقات ۲۴ ساعت گذشته</h2>
+        <p id="digest-text">خلاصه روزانه پس از اجرای زمان‌بندی خودکار در این بخش قرار می‌گیرد.</p>
+        <a class="text-link" href="#daily-digest" id="digest-link">مشاهده گزارش روزانه <span>←</span></a>
+      </div>
+    </section>
+
+    <section class="news-section">
+      <div class="section-heading">
+        <div><span class="eyebrow">اتاق خبر</span><h2>آخرین خبرها</h2></div>
+        <div class="news-tools"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="جست‌وجو در خبرها…"></label><button class="refresh" id="refresh">↻ <span>تازه‌سازی</span></button></div>
+      </div>
+      <nav class="filters" id="filters">
+        <button class="filter active" data-category="all">همه خبرها</button>
+        <button class="filter" data-category="ai">هوش مصنوعی و فناوری</button>
+        <button class="filter" data-category="security">امنیتی و نظامی</button>
+        <button class="filter" data-category="politics">سیاست</button>
+        <button class="filter" data-category="football">فوتبال</button>
+        <button class="filter" data-category="markets">بازارها و اقتصاد</button>
+        <button class="filter" data-category="crypto">ارز دیجیتال</button>
+      </nav>
+      <div class="news-grid" id="news-grid"><div class="loading-card">در حال دریافت آخرین خبرها…</div></div>
+      <div class="empty hidden" id="empty">خبری با این عبارت پیدا نشد.</div>
+    </section>
+
+    <section class="daily-section" id="daily-digest">
+      <div class="section-heading"><div><span class="eyebrow">آرشیو تحلیلی</span><h2>گزارش روزانه</h2></div><span class="muted">گزارش‌های تولیدشده خودکار</span></div>
+      <article class="daily-card"><div class="daily-date" id="digest-date">آخرین گزارش</div><div id="digest-items" class="digest-items"><p class="muted">هنوز گزارشی منتشر نشده است. نخستین گزارش در نوبت زمان‌بندی‌شده ساخته می‌شود.</p></div></article>
+    </section>
+
+    <footer><div class="brand mini"><span class="brand-mark">ن</span><b>نبض</b></div><span>گردآوری خودکار از منابع عمومی · برای بررسی صحت خبر، متن منبع اصلی را بخوانید.</span><span>© <span id="year"></span> Nabz</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
