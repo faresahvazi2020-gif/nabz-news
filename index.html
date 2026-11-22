@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d14">
+  <meta name="description" content="نبض؛ پایگاه هوشمند اخبار فناوری، سیاست، امنیت، فوتبال و بازارهای مالی">
+  <title>نبض | پایگاه هوشمند اخبار</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="./" class="logo">
+      <span class="logo-icon">ن</span>
+      <span>نَبض</span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="#news">آخرین اخبار</a>
+      <a href="#digest">گزارش روزانه</a>
+      <a href="#markets">بازارها</a>
+    </nav>
+
+    <div class="live-status">
+      <span class="live-dot"></span>
+      پوشش خبری آنلاین
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">SMART NEWS PLATFORM</span>
+      <h1>نبض <span>جهان</span> را دنبال کن</h1>
+      <p>
+        تازه‌ترین رویدادهای فناوری، سیاست، امنیت،
+        فوتبال و بازارهای مالی در یک نگاه.
+      </p>
+
+      <div class="hero-date">
+        <span id="today">امروز</span>
+        <span class="separator">|</span>
+        <span>آخرین به‌روزرسانی: <b id="updated">در انتظار دریافت اطلاعات</b></span>
+      </div>
+    </div>
+
+    <div class="hero-decoration">
+      <div class="pulse-circle">N</div>
+    </div>
+  </section>
+
+  <section class="digest-section" id="digest">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">DAILY BRIEFING</span>
+        <h2>خلاصه روزانه</h2>
+      </div>
+      <span id="digest-date">آخرین گزارش</span>
+    </div>
+
+    <div class="digest-card">
+      <p id="digest-text">گزارش روزانه در انتظار دریافت اطلاعات است.</p>
+      <div id="digest-items"></div>
+    </div>
+  </section>
+
+  <section class="news-section" id="news">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">LATEST UPDATES</span>
+        <h2>آخرین اخبار</h2>
+      </div>
+
+      <button id="refresh" class="refresh-button">
+        ↻ <span>تازه‌سازی</span>
+      </button>
+    </div>
+
+    <div class="search-box">
+      <span>⌕</span>
+      <input
+        type="search"
+        id="search"
+        placeholder="جستجو در میان اخبار..."
+        autocomplete="off"
+      >
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter active" data-category="all">همه اخبار</button>
+      <button class="filter" data-category="ai">هوش مصنوعی و فناوری</button>
+      <button class="filter" data-category="security">امنیتی و نظامی</button>
+      <button class="filter" data-category="politics">سیاست</button>
+      <button class="filter" data-category="football">فوتبال</button>
+      <button class="filter" data-category="markets">اقتصاد و بازارها</button>
+      <button class="filter" data-category="crypto">ارز دیجیتال</button>
+    </div>
+
+    <div class="news-grid" id="news-grid">
+      <div class="loading-card">
+        در حال آماده‌سازی اخبار...
+      </div>
+    </div>
+
+    <div id="empty" class="hidden"></div>
+  </section>
+
+  <section class="markets-section" id="markets">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">FINANCIAL MARKETS</span>
+        <h2>نبض بازارهای جهانی</h2>
+      </div>
+    </div>
+
+    <div class="market-widget">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script
+          type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+          async>
+        {
+          "symbols": [
+            {"proName":"OANDA:XAUUSD","title":"طلا"},
+            {"proName":"OANDA:EURUSD","title":"یورو / دلار"},
+            {"proName":"BITSTAMP:BTCUSD","title":"بیت کوین"},
+            {"proName":"NASDAQ:IXIC","title":"نزدک"},
+            {"proName":"NYMEX:CL1!","title":"نفت"}
+          ],
+          "showSymbolLogo": true,
+          "isTransparent": true,
+          "displayMode": "adaptive",
+          "colorTheme": "dark",
+          "locale": "fa"
+        }
+        </script>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">ن</span>
+      <strong>نبض</strong>
+    </div>
+
+    <p>رصد هوشمند رویدادهای جهان</p>
+    <p>© <span id="year"></span> NABZ NEWS</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
